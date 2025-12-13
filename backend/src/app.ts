@@ -2,6 +2,7 @@ import express, { Application } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.routes';
+import sweetRoutes from './routes/sweet.routes';
 
 dotenv.config();
 
@@ -16,5 +17,6 @@ app.get('/health', (req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/sweets', sweetRoutes);
 
 export default app;
