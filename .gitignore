@@ -8,6 +8,7 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+**/.env
 
 # Build output
 dist/
@@ -15,18 +16,13 @@ build/
 
 # Testing
 coverage/
-*.log
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
 
 # OS
 .DS_Store
 Thumbs.db
-
-# Misc
-*.orig
