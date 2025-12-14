@@ -26,9 +26,8 @@ router.post(
   createSweet
 );
 
-router.get('/', authenticate, getAllSweets);
-
-router.get('/search', authenticate, searchSweets);
+router.get('/', getAllSweets);
+router.get('/search', searchSweets);
 
 router.put('/:id', authenticate, authorize('admin'), updateSweet);
 
