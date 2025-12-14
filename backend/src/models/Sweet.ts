@@ -5,6 +5,7 @@ export interface ISweet extends Document {
   category: string;
   price: number;
   quantity: number;
+  description?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -30,6 +31,10 @@ const sweetSchema = new Schema<ISweet>({
     required: [true, 'Quantity is required'],
     min: [0, 'Quantity cannot be negative'],
     default: 0
+  },
+  description: {
+    type: String,
+    trim: true
   }
 }, {
   timestamps: true
