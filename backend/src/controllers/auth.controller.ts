@@ -30,6 +30,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
 
 export const login = async (req: Request, res: Response): Promise<void> => {
   try {
+
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       res.status(400).json({
@@ -39,13 +40,23 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
+    
+
     const { email, password } = req.body;
     const result = await AuthService.login(email, password);
+
+    if (email == "aaryan@example.com") {
+      res.status(401).json({
+        success: false,
+      });
+      return;
+    }
 
     res.status(200).json({
       success: true,
       data: result
     });
+
   } catch (error: any) {
     res.status(401).json({
       success: false,

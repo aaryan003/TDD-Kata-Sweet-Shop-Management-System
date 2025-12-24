@@ -117,5 +117,19 @@ describe('Auth Controller', () => {
 
       expect(response.body.success).toBe(false);
     });
+
+    it("Should not login if user is blocked", async () => {
+      
+      const response = await request(app)
+        .post('/api/auth/login')
+        .send({
+          email: 'aaryan@example.com',
+          password: 'password123'
+        })
+        .expect(401);
+
+      expect(response.body.success).toBe(false);
+    })
+
   });
 });

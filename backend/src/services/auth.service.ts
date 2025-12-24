@@ -25,7 +25,6 @@ class AuthService {
       throw new Error('JWT_SECRET is not defined');
     }
 
-    // FIX: Cast the options object to jwt.SignOptions
     return jwt.sign(
       { id: userId },
       secret,
